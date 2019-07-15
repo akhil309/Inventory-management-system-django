@@ -1,0 +1,27 @@
+{% extends 'Inventory/base.html' %}
+{% block content %}
+    {% if item_list %}
+
+    <table id="example" class="table table-bordered display" style="width:100%">
+    		<thead class="thead-dark">
+            		<tr>
+				<th>ID</th>
+                <th>Name</th>
+				<th>Category</th>
+				<th>Quantity</th>
+            		</tr>
+        	</thead>
+        	<tbody>
+    		{% for item in item_list %}
+		<tr>
+        		<td>{{ item.item_id }}</td><td><a href="{% url 'Inventory:details' item.item_id %}">{{ item.name }}</a></td><td>{{ item.category.category }}</td><td>{{ item.quantity }}</td></a>
+	  	</tr>
+	{% endfor %}
+		</tbody>
+
+	</table>
+	{% else %}
+    		<p>No details are available.</p>
+    {% endif %}
+
+{% endblock %}

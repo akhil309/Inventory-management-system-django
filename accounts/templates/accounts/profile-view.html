@@ -1,0 +1,30 @@
+{% extends 'Inventory/base.html' %}
+{% block content %}
+    {% if user.is_authenticated %}
+         <table id="example" class="table table-bordered display" style="width:100%">
+    		<thead class="thead-dark">
+            		<tr>
+				<th>Trans_ID</th>
+                <th>Item</th>
+				<th>Quantity</th>
+				<th>Hostel</th>
+
+                <th>Time</th>
+            		</tr>
+        	</thead>
+        	<tbody>
+    		{% for trans in transaction %}
+		<tr>
+        		<td>{{ trans.trans_id }}</td><td>{{ trans.item }}</a></td><td>{{trans.quantity }}</td><td>{{ trans.client }}</td><td>{{ trans.time }}</td></a>
+	  	</tr>
+	{% endfor %}
+		</tbody>
+
+	</table>
+	{% else %}
+    		<p>No Transactions</p>
+    {% endif %}
+
+
+
+{% endblock %}
